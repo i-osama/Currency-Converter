@@ -1,15 +1,15 @@
 import 'package:flutter/material.dart';
 
 class CurrencyConverterMaterial extends StatelessWidget {
-  CurrencyConverterMaterial({super.key});
+  const CurrencyConverterMaterial({super.key});
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
-        backgroundColor: Color.fromARGB(255, 37, 32, 32),
+        backgroundColor: const Color.fromARGB(255, 37, 32, 32),
         body: Center(
           child: ColoredBox(
-            color: Color.fromARGB(255, 216, 64, 64),
+            color: const Color.fromARGB(255, 216, 64, 64),
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
               const Text(
@@ -54,6 +54,40 @@ class CurrencyConverterMaterial extends StatelessWidget {
                       )),
                 ),
               ),
+              Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: TextButton(
+                  onPressed: () {
+                    debugPrint("Button pressed on level 1");
+                  },
+                  // style: const ButtonStyle(
+                  //     elevation: MaterialStatePropertyAll(15),
+                  //     backgroundColor: MaterialStatePropertyAll(Colors.black),
+                  //     foregroundColor: MaterialStatePropertyAll(
+                  //         Color.fromARGB(255, 247, 245, 245)),
+                  //     minimumSize:
+                  //         MaterialStatePropertyAll(Size(double.infinity, 50)),
+                  //     shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                  //       borderRadius: BorderRadius.horizontal(
+                  //           right: Radius.circular(12),
+                  //           left: Radius.circular(12)),
+                  //     ))),
+                  style: TextButton.styleFrom(
+                      elevation: 15,
+                      backgroundColor: Colors.black,
+                      foregroundColor: const Color.fromARGB(255, 247, 245, 245),
+                      minimumSize: const Size(double.infinity, 50),
+                      shape: const RoundedRectangleBorder(
+                          borderRadius: BorderRadius.horizontal(
+                        right: Radius.circular(12),
+                        left: Radius.circular(12),
+                      ))),
+                  child: const Text("Check",
+                      style: TextStyle(
+                        fontSize: 20,
+                      )),
+                ),
+              )
             ]),
           ),
         ),
