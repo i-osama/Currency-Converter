@@ -1,20 +1,42 @@
 import 'package:flutter/material.dart';
 
-class CurrencyConverterMaterial extends StatelessWidget {
+class CurrencyConverterMaterial extends StatefulWidget {
   const CurrencyConverterMaterial({super.key});
+
+  @override
+  State<CurrencyConverterMaterial> createState() {
+    return _CurrencyConverterMaterialPageState();
+  }
+}
+
+class _CurrencyConverterMaterialPageState
+    extends State<CurrencyConverterMaterial> {
+  double result = 0;
+  final TextEditingController textEditingController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          elevation: 0,
+          title: const Text(
+            "Currency Converter",
+            style: TextStyle(
+                fontSize: 30, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+          centerTitle: true,
+          backgroundColor: const Color.fromARGB(255, 216, 64, 64),
+        ),
         backgroundColor: const Color.fromARGB(255, 37, 32, 32),
         body: Center(
           child: ColoredBox(
             color: const Color.fromARGB(255, 216, 64, 64),
             child:
                 Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              const Text(
-                'Ganja ganja....',
-                style: TextStyle(
+              Text(
+                "TK ${result != 0 ? result.toStringAsFixed(3) : result.toStringAsFixed(0)}",
+                style: const TextStyle(
                     fontSize: 30,
                     fontStyle: FontStyle.italic,
                     fontWeight: FontWeight.bold,
@@ -23,17 +45,20 @@ class CurrencyConverterMaterial extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.only(left: 10, right: 10),
                 child: TextField(
+                  controller: textEditingController,
+                  keyboardType:
+                      const TextInputType.numberWithOptions(decimal: true),
                   style: const TextStyle(fontSize: 25),
-                  decoration: InputDecoration(
-                      hintText: "Enter the dollar",
-                      hintStyle: const TextStyle(
+                  decoration: const InputDecoration(
+                      hintText: "Dollar to Taka",
+                      hintStyle: TextStyle(
                           color: Color.fromARGB(255, 91, 88, 88),
                           fontWeight: FontWeight.normal),
-                      prefixIcon: const Icon(Icons.monetization_on),
-                      prefixIconColor: const Color.fromARGB(255, 68, 64, 64),
+                      prefixIcon: Icon(Icons.monetization_on),
+                      prefixIconColor: Color.fromARGB(255, 68, 64, 64),
                       fillColor: Colors.white,
                       filled: true,
-                      enabledBorder: const OutlineInputBorder(
+                      enabledBorder: OutlineInputBorder(
                         borderSide:
                             BorderSide(color: Colors.blueGrey, width: 6),
                         borderRadius: BorderRadius.horizontal(
@@ -41,16 +66,19 @@ class CurrencyConverterMaterial extends StatelessWidget {
                             left: Radius.circular(12)),
                       ),
                       focusedBorder: OutlineInputBorder(
-                        borderSide: const BorderSide(
-                          color: Color.fromARGB(255, 206, 54, 244),
+                        borderSide: BorderSide(
+                          color: Color.fromARGB(255, 234, 146, 13),
                           width: 5,
-                          strokeAlign: BorderSide.strokeAlignInside,
+                          // strokeAlign: BorderSide.strokeAlignInside,
                         ),
                         borderRadius:
                             // BorderRadius.only(topRight: Radius.circular(60)),
                             // BorderRadius.only(topLeft: Radius.circular(60)),
                             // BorderRadius.horizontal(left: Radius.circular(60)),
-                            BorderRadius.circular(60),
+                            // BorderRadius.circular(60),
+                            BorderRadius.horizontal(
+                                right: Radius.circular(12),
+                                left: Radius.circular(12)),
                       )),
                 ),
               ),
@@ -58,7 +86,13 @@ class CurrencyConverterMaterial extends StatelessWidget {
                 padding: const EdgeInsets.all(12.0),
                 child: TextButton(
                   onPressed: () {
-                    debugPrint("Button pressed on level 1");
+                    // print(textEditingController.text);
+                    setState(() {
+                      result =
+                          double.parse(textEditingController.text) * 109.82;
+                    });
+
+                    // return result;
                   },
                   // style: const ButtonStyle(
                   //     elevation: MaterialStatePropertyAll(15),
@@ -95,3 +129,13 @@ class CurrencyConverterMaterial extends StatelessWidget {
     );
   }
 }
+
+// class CurrencyConverterMaterial_P extends StatelessWidget {
+//   const CurrencyConverterMaterial_P({super.key});
+
+//   @override
+//   Widget build(BuildContext context) {
+//     // TODO: implement build
+//     throw UnimplementedError();
+//   }
+// }
