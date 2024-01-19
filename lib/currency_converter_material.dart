@@ -20,32 +20,39 @@ class CurrencyConverterMaterial extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                     color: Color.fromARGB(255, 252, 251, 251)),
               ),
-              TextField(
-                style: const TextStyle(fontSize: 25),
-                decoration: InputDecoration(
-                    hintText: "Enter the dollar",
-                    hintStyle: const TextStyle(
-                        color: Color.fromARGB(255, 91, 88, 88),
-                        fontWeight: FontWeight.normal),
-                    prefixIcon: const Icon(Icons.monetization_on),
-                    prefixIconColor: Color.fromARGB(255, 68, 64, 64),
-                    fillColor: Colors.white,
-                    filled: true,
-                    enabledBorder: const OutlineInputBorder(
-                      borderSide: BorderSide(color: Colors.blueGrey, width: 6),
-                    ),
-                    focusedBorder: OutlineInputBorder(
-                      borderSide: const BorderSide(
-                        color: Color.fromARGB(255, 206, 54, 244),
-                        width: 5,
-                        strokeAlign: BorderSide.strokeAlignInside,
+              Container(
+                padding: const EdgeInsets.only(left: 10, right: 10),
+                child: TextField(
+                  style: const TextStyle(fontSize: 25),
+                  decoration: InputDecoration(
+                      hintText: "Enter the dollar",
+                      hintStyle: const TextStyle(
+                          color: Color.fromARGB(255, 91, 88, 88),
+                          fontWeight: FontWeight.normal),
+                      prefixIcon: const Icon(Icons.monetization_on),
+                      prefixIconColor: const Color.fromARGB(255, 68, 64, 64),
+                      fillColor: Colors.white,
+                      filled: true,
+                      enabledBorder: const OutlineInputBorder(
+                        borderSide:
+                            BorderSide(color: Colors.blueGrey, width: 6),
+                        borderRadius: BorderRadius.horizontal(
+                            right: Radius.circular(12),
+                            left: Radius.circular(12)),
                       ),
-                      borderRadius:
-                          // BorderRadius.only(topRight: Radius.circular(60)),
-                          // BorderRadius.only(topLeft: Radius.circular(60)),
-                          // BorderRadius.horizontal(left: Radius.circular(60)),
-                          BorderRadius.circular(60),
-                    )),
+                      focusedBorder: OutlineInputBorder(
+                        borderSide: const BorderSide(
+                          color: Color.fromARGB(255, 206, 54, 244),
+                          width: 5,
+                          strokeAlign: BorderSide.strokeAlignInside,
+                        ),
+                        borderRadius:
+                            // BorderRadius.only(topRight: Radius.circular(60)),
+                            // BorderRadius.only(topLeft: Radius.circular(60)),
+                            // BorderRadius.horizontal(left: Radius.circular(60)),
+                            BorderRadius.circular(60),
+                      )),
+                ),
               ),
             ]),
           ),
