@@ -15,6 +15,12 @@ class _CurrencyConverterMaterialPageState
   final TextEditingController textEditingController = TextEditingController();
 
   @override
+  void dispose() {
+    textEditingController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
