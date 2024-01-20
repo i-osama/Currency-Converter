@@ -11,6 +11,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     // return Text("This is a test", textDirection: TextDirection.ltr);
-    return const MaterialApp(home: CurrencyConverterMaterial());
+    return const MaterialApp(
+        title: "USD to TK converter", home: CurrencyConverterMaterial());
   }
 }
